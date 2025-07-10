@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const products = [
                 {
-                    id: 1,
+                    id: 6,
                     name: 'Study Table',
                     description: 'Study Table with a sleek design, perfect for home or office use. Made from high-quality wood with a smooth finish. Ample space for books and a laptop.',
                     price: '₹ 499',

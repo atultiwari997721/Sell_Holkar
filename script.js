@@ -13,21 +13,29 @@ document.addEventListener('DOMContentLoaded', () => {
             description: '96 pages Assignment Notebook with a sturdy cover and smooth paper. Ideal for organizing your assignments and notes.',
             price: '₹ 30',
             image: 'NoteBookAS.jpg'
+        }, 
+        {
+         id: 5,
+                    name: 'Spiral Notebook 200 Pages',
+                    description: '200 pages Spiral Notebook with a durable cover and high-quality paper. Perfect for students and professionals alike.',
+                    price: '₹ 80',
+                    image: 'SpiralNotebook200.jpg'
         },
         {
-              id: 3,
+              id: 4,
                 name: 'Hand Free',
                 description: 'High-quality hand-free with noise isolation and clear sound. Perfect for calls and music on the go. Ergonomic design for comfort during long use.',
                 price: '₹ 50 ',
                 image: 'HandFree.png' // Placeholder image
         },
         {
-           id: 4,
+           id: 6,
                     name: 'Study Table',
                     description: 'Study Table with a sleek design, perfect for home or office use. Made from high-quality wood with a smooth finish. Ample space for books and a laptop.',
                     price: '₹ 499',
                     image: sec='S-martLogo.jpg' // Warm brown/white theme
         }
+       
     ];
 
     const productListDiv = document.getElementById('product-list');

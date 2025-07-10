@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
             description: '96 pages Assignment Notebook with a sturdy cover and smooth paper. Ideal for organizing your assignments and notes.',
             price: '₹ 30',
             image: 'NoteBookAS.jpg'
+        },
+        {
+            id: 5,
+            name: 'Spiral Notebook 200 Pages',
+            description: '200 pages Spiral Notebook with a durable cover and high-quality paper. Perfect for students and professionals alike.',
+            price: '₹ 80',
+            image: 'SpiralNotebook200.jpg'
         }
         
     ];
