@@ -1,290 +1,120 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S-Mart Stationary Products</title>
-    <link rel="icon" href="S-martLogo.jpg" type="image/x-icon">
+    <title>Sell Your Product - Details</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Base styles - will be overridden by theme classes for stationery look */
+        /* Specific styles for product-detail.html */
         body {
-            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif; /* Modern, clean, slightly rounded font */
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensure body takes full viewport height for footer */
+            min-height: 100vh; /* Ensure body takes full viewport height */
         }
-
-        /* --- Light Theme Defaults (Bright & Inspiring Stationery Look) --- */
-        body.light-theme {
-            background-color: #fcfcfc; /* Crisp, clean white background */
-            color: #444444; /* Soft dark grey for text */
-        }
-
-        body.light-theme .detail-header {
-            background-color: #A7C7E7; /* Sky blue - calming and creative */
-            color: #2F4F4F; /* Dark slate grey for contrast */
-            box-shadow: 0 3px 8px rgba(167, 199, 231, 0.5); /* Soft, airy shadow */
-            border-bottom: 2px solid #8FAAD4;
-        }
-
-        body.light-theme .detail-header h1 {
-            color: #2F4F4F;
-        }
-
-        body.light-theme .product-detail-container {
-            background-color: #ffffff;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* Gentle, clean shadow */
-            border: 1px solid #e5e5e5; /* Subtle light border */
-        }
-
-        body.light-theme .product-detail-info h2 {
-            color: #6A5ACD; /* Slate blue - sophisticated and artistic */
-        }
-
-        body.light-theme .product-detail-info p {
-            color: #555555;
-        }
-
-        body.light-theme .product-detail-info .price {
-            color: #20B2AA; /* Light sea green - fresh and inviting */
-        }
-
-        body.light-theme .user-details-form {
-            background-color: #fcfcfc;
-            border: 1px solid #f0f0f0;
-        }
-
-        body.light-theme .user-details-form label {
-            color: #444444;
-        }
-
-        body.light-theme .user-details-form input[type="text"],
-        body.light-theme .user-details-form input[type="email"],
-        body.light-theme .user-details-form input[type="tel"],
-        body.light-theme .user-details-form textarea {
-            background-color: #ffffff;
-            border-color: #dddddd;
-            color: #333333;
-        }
-
-        body.light-theme .btn-continue {
-            background-color: #A7C7E7; /* Primary sky blue button */
-            color: #2F4F4F; /* Dark text on light button */
-        }
-
-        body.light-theme .btn-continue:hover {
-            background-color: #8FAAD4;
-            box-shadow: 0 2px 8px rgba(167, 199, 231, 0.3); /* Soft hover shadow */
-        }
-
-        body.light-theme .btn-whatsapp-form {
-            background-color: #66BB6A; /* Fresh green WhatsApp button */
-        }
-
-        body.light-theme .btn-whatsapp-form:hover {
-            background-color: #4CAF50;
-            box-shadow: 0 2px 8px rgba(102, 187, 106, 0.3); /* Green hover shadow */
-        }
-
-        body.light-theme footer {
-            background-color: #C0C0C0; /* Light silver grey footer */
-            color: #555555;
-            border-top: 1px solid #B0B0B0;
-        }
-
-        /* --- Dark Theme Styles (Sophisticated & Creative) --- */
-        body.dark-theme {
-            background-color: #36454F; /* Charcoal grey for sophistication */
-            color: #E0E0E0; /* Light text */
-        }
-
-        body.dark-theme .detail-header {
-            background-color: #2F4F4F; /* Dark slate grey */
-            color: #FFD700; /* Gold accent */
-            box-shadow: 0 3px 8px rgba(255, 215, 0, 0.3); /* Golden glow shadow */
-            border-bottom: 2px solid #B8860B;
-        }
-
-        body.dark-theme .detail-header h1 {
-            color: #FFD700;
-        }
-
-        body.dark-theme .product-detail-container {
-            background-color: #4A4A4A; /* Slightly lighter charcoal for contrast */
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4); /* Stronger dark shadow */
-            border: 1px solid #5C5C5C;
-        }
-
-        body.dark-theme .product-detail-info img {
-            border-color: #666666; /* Darker image border */
-        }
-
-        body.dark-theme .product-detail-info h2 {
-            color: #ADD8E6; /* Light blue - subtle contrast */
-        }
-
-        body.dark-theme .product-detail-info p {
-            color: #CCCCCC;
-        }
-
-        body.dark-theme .product-detail-info .price {
-            color: #98FB98; /* Pale green for price */
-        }
-
-        body.dark-theme .user-details-form {
-            background-color: #36454F;
-            border: 1px solid #555555;
-        }
-
-        body.dark-theme .user-details-form label {
-            color: #E0E0E0;
-        }
-
-        body.dark-theme .user-details-form input[type="text"],
-        body.dark-theme .user-details-form input[type="email"],
-        body.dark-theme .user-details-form input[type="tel"],
-        body.dark-theme .user-details-form textarea {
-            background-color: #555555;
-            border-color: #777777;
-            color: #f0f0f0;
-        }
-
-        body.dark-theme .user-details-form input::placeholder,
-        body.dark-theme .user-details-form textarea::placeholder {
-            color: #aaaaaa;
-        }
-
-        body.dark-theme .btn-continue {
-            background-color: #2F4F4F; /* Dark slate grey button */
-            color: #FFD700; /* Gold text on dark button */
-        }
-
-        body.dark-theme .btn-continue:hover {
-            background-color: #2C3E50;
-            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
-        }
-
-        body.dark-theme .btn-whatsapp-form {
-            background-color: #4CAF50; /* Green WhatsApp button */
-        }
-
-        body.dark-theme .btn-whatsapp-form:hover {
-            background-color: #388E3C;
-            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
-        }
-
-        body.dark-theme footer {
-            background-color: #2F4F4F;
-            color: #BBBBBB;
-            border-top: 1px solid #444444;
-        }
-
-        /* General / Common Styles (not theme-specific) */
         .detail-header {
+            background-color: #007BFF;
+            color: white;
             padding: 1.5rem 0;
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border-bottom 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .detail-header h1 {
             margin: 0;
             font-size: 2.2rem;
-            transition: color 0.3s;
         }
+
         .product-detail-container {
             max-width: 800px;
             margin: 30px auto;
             padding: 25px;
+            background-color: white;
             border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex-grow: 1;
-            transition: background-color 0.3s, box-shadow 0.3s, border 0.3s;
         }
+
         .product-detail-info {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 25px;
             text-align: center;
-            width: 100%;
         }
+
         .product-detail-info img {
             max-width: 100%;
-            height: 250px;
-            object-fit: contain;
+            height: 250px; /* Larger image for detail */
+            object-fit: contain; /* Contain the image within its bounds */
+            border: 1px solid #eee;
             border-radius: 8px;
             margin-bottom: 20px;
-            transition: border-color 0.3s;
         }
+
         .product-detail-info h2 {
             font-size: 2rem;
+            color: #007BFF;
             margin-bottom: 10px;
-            transition: color 0.3s;
         }
+
         .product-detail-info p {
             font-size: 1.1rem;
+            color: #555;
             line-height: 1.6;
             margin-bottom: 5px;
-            transition: color 0.3s;
         }
+
         .product-detail-info .price {
             font-size: 1.5rem;
             font-weight: bold;
+            color: #28a745;
             margin-top: 15px;
-            transition: color 0.3s;
         }
+
         .user-details-form {
             width: 100%;
             max-width: 500px;
             padding: 20px;
+            border: 1px solid #ddd;
             border-radius: 8px;
             margin-top: 20px;
-            transition: background-color 0.3s, border-color 0.3s;
+            background-color: #f9f9f9;
         }
-        .user-details-form h3 {
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 1.6rem;
-            text-align: center;
-            transition: color 0.3s;
-        }
+
         .user-details-form label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            transition: color 0.3s;
+            color: #333;
         }
+
         .user-details-form input[type="text"],
         .user-details-form input[type="email"],
-        .user-details-form input[type="tel"],
         .user-details-form textarea {
-            width: calc(100% - 20px);
+            width: calc(100% - 20px); /* Account for padding */
             padding: 10px;
             margin-bottom: 15px;
+            border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 1rem;
-            box-sizing: border-box;
-            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+            box-sizing: border-box; /* Include padding in width */
         }
+
         .user-details-form textarea {
-            resize: vertical;
+            resize: vertical; /* Allow vertical resizing */
             min-height: 80px;
         }
+
         .form-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 25px;
-            flex-wrap: wrap;
         }
+
         .form-btn {
             padding: 12px 20px;
             border-radius: 5px;
@@ -294,15 +124,69 @@
             font-size: 1.1rem;
             cursor: pointer;
             border: none;
-            transition: background-color 0.3s ease, box-shadow 0.3s;
-            text-align: center;
-            flex-shrink: 0;
+            transition: background-color 0.3s ease;
         }
-        footer {
-            padding: 1rem 0;
-            text-align: center;
-            margin-top: auto;
-            transition: background-color 0.3s, color 0.3s, border-top 0.3s;
+
+        .btn-continue {
+            background-color: #007BFF;
+        }
+
+        .btn-continue:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-whatsapp-form {
+            background-color: #25D366;
+        }
+
+        .btn-whatsapp-form:hover {
+            background-color: #1DA851;
+        }
+
+        /* Dark Theme Specific Styles for product-detail.html */
+        body.dark-theme .detail-header {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+
+        body.dark-theme .product-detail-container {
+            background-color: #2c2c2c;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            color: #f0f0f0; /* Default text color */
+        }
+
+        body.dark-theme .product-detail-info h2 {
+            color: #8ab4f8;
+        }
+
+        body.dark-theme .product-detail-info p {
+            color: #bbb;
+        }
+
+        body.dark-theme .product-detail-info .price {
+            color: #6cff8a;
+        }
+
+        body.dark-theme .user-details-form {
+            background-color: #3a3a3a;
+            border-color: #555;
+        }
+
+        body.dark-theme .user-details-form label {
+            color: #f0f0f0;
+        }
+
+        body.dark-theme .user-details-form input[type="text"],
+        body.dark-theme .user-details-form input[type="email"],
+        body.dark-theme .user-details-form textarea {
+            background-color: #555;
+            border-color: #777;
+            color: #f0f0f0;
+        }
+
+        body.dark-theme .user-details-form input::placeholder,
+        body.dark-theme .user-details-form textarea::placeholder {
+            color: #ccc;
         }
 
         /* Responsive adjustments for product-detail.html */
@@ -324,7 +208,7 @@
                 padding: 15px;
             }
             .form-btn {
-                padding: 10px 18px;
+                padding: 10px 20px;
                 font-size: 1rem;
             }
         }
@@ -345,18 +229,18 @@
             }
             .user-details-form input[type="text"],
             .user-details-form input[type="email"],
-            .user-details-form input[type="tel"],
             .user-details-form textarea {
-                width: 100%;
+                width: 100%; /* Full width minus padding on smaller screens */
             }
             .form-buttons {
-                flex-direction: column;
+                flex-direction: column; /* Stack buttons vertically */
                 gap: 10px;
+                /* Center the items when stacked vertically */
                 align-items: center;
             }
             .form-btn {
-                width: 80%;
-                max-width: 250px;
+                width:80%; /* Make buttons full width */
+                /* Center block-level elements with a defined width */
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -365,13 +249,13 @@
 </head>
 <body>
     <header class="detail-header">
-        <h1>Sell Your Stationery</h1>
-        <p>Confirm details and provide your contact information.</p>
+        <h1>Sell Your Product</h1>
+        <p>Please confirm details and provide your contact information.</p>
     </header>
 
     <main class="product-detail-container">
         <section class="product-detail-info">
-            <img id="product-image" src="" alt="Stationery Item Image">
+            <img id="product-image" src="" alt="Product Image">
             <h2 id="product-name">Product Name Loading...</h2>
             <p id="product-description">Description Loading...</p>
             <p class="price" id="product-price">Price Loading...</p>
@@ -387,13 +271,13 @@
                 <input type="email" id="email" name="email" required placeholder="Enter your email address">
 
                 <label for="phone">Your Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required placeholder="e.g., +91 9876543210">
+                <input type="text" id="phone" name="phone" required placeholder="e.g., +91 9876543210">
 
                 <label for="address">Your Address:</label>
                 <textarea id="address" name="address" rows="4" required placeholder="Street, City, State, Pin Code"></textarea>
 
                 <div class="form-buttons">
-                    <button type="submit" class="form-btn btn-continue">Submit Inquiry</button>
+                    <button type="submit" class="form-btn btn-continue">Continue</button>
                     <a id="whatsapp-link" href="#" class="form-btn btn-whatsapp-form" target="_blank">WhatsApp Us</a>
                 </div>
             </form>
@@ -401,7 +285,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Stationery Hub. All rights reserved.</p>
+        <p>&copy; 2025 Your Store Name. All rights reserved.</p>
     </footer>
 
     <script>
@@ -432,23 +316,44 @@
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
 
-            // Define your product data for a stationery store
+            // Define your product data (ideally, this would come from a server/API)
+            // For now, we'll hardcode it just like in script.js
             const allProductsData = [
                 {
                     id: 1,
-                    name: 'Premium Gel Pen Set',
-                    description: 'A vibrant set of smooth-writing gel pens, perfect for notes, journaling, and creative projects. Quick-drying, fade-resistant ink.',
-                    price: '₹299',
-                    image: 'pic1.png' // Blue/dark grey theme
+                    name: 'Stylish Watch',
+                    description: 'A classic and elegant watch suitable for all occasions. High-quality materials and durable design. Perfect for daily wear or special events.',
+                    price: '₹1,500',
+                    image: 'https://th.bing.com/th/id/OIP.gp5F7b3A5S3WFd0HfWxgAQAAAA?w=227&h=180&c=7&r=0&o=5&dpr=2&pid=1.7'
                 },
                 {
                     id: 2,
-                    name: 'Assignment Notebook "96 Pages"',
-                    description: '96 pages Assignment Notebook with a sturdy cover and smooth paper. Ideal for organizing your assignments and notes.',
-                    price: '₹ 30',
-                    image: 'NoteBookAS.jpg'
+                    name: 'Wireless Headphones',
+                    description: 'Immersive sound with active noise cancellation. Enjoy crystal-clear audio and comfortable earcups for hours of listening pleasure.',
+                    price: '₹2,999',
+                    image: 'https://th.bing.com/th/id/OIP.gp5F7b3A5S3WFd0HfWxgAQAAAA?w=227&h=180&c=7&r=0&o=5&dpr=2&pid=1.7'
+                },
+                {
+                    id: 3,
+                    name: 'Smart Fitness Tracker',
+                    description: 'Track your steps, heart rate, sleep, and calories burned with precision. Syncs with your smartphone for detailed health insights.',
+                    price: '₹999',
+                    image: 'https://th.bing.com/th/id/OIP.gp5F7b3A5S3WFd0HfWxgAQAAAA?w=227&h=180&c=7&r=0&o=5&dpr=2&pid=1.7'
+                },
+                {
+                    id: 4,
+                    name: 'Portable Bluetooth Speaker',
+                    description: 'Powerful sound in a compact and durable design. Perfect for outdoor adventures or enhancing your home audio experience.',
+                    price: '₹1,250',
+                    image: 'https://th.bing.com/th/id/OIP.gp5F7b3A5S3WFd0HfWxgAQAAAA?w=227&h=180&c=7&r=0&o=5&dpr=2&pid=1.7'
+                },
+                {
+                    id: 5,
+                    name: 'Designer Sunglasses',
+                    description: 'Protect your eyes with style and clarity. UV400 protection and a lightweight frame for all-day comfort.',
+                    price: '₹750',
+                    image: 'https://th.bing.com/th/id/OIP.gp5F7b3A5S3WFd0HfWxgAQAAAA?w=227&h=180&c=7&r=0&o=5&dpr=2&pid=1.7'
                 }
-               
             ];
 
             let product = null;
@@ -469,7 +374,8 @@
                 productDescription.textContent = product.description;
                 productPrice.textContent = product.price;
 
-                const whatsappPhoneNumber = '919876543210'; // Replace with your WhatsApp number (e.g., +91XXXXXXXXXX without '+')
+                // Initial WhatsApp link (will be updated on form input)
+                const whatsappPhoneNumber = '+917828706954'; // Replace with your WhatsApp number (e.g., +91XXXXXXXXXX without '+')
                 whatsappLink.href = `https://wa.me/${whatsappPhoneNumber}?text=Hello, I'm interested in selling my ${encodeURIComponent(product.name)} (ID: ${product.id}). Could you please guide me on the process?`;
 
             } else {
@@ -563,21 +469,32 @@
                 }
 
                 // All details are valid, prepare email redirection
-                const recipientEmail = 'smartcollectionforme@gmail.com'; // IMPORTANT: Replace with the email address where you want to receive inquiries
-                const emailSubject = encodeURIComponent(`Stationery Sell Inquiry: ${product ? product.name : 'Unknown Product'} from ${name}`);
+                const recipientEmail = 'your_email@example.com'; // Replace with the email address where you want to receive inquiries
+                const emailSubject = encodeURIComponent(`Inquiry to Sell Product: ${product ? product.name : 'Unknown Product'}`);
                 const emailBody = generateMailtoBody();
 
                 // Redirect to mail client
                 window.location.href = `mailto:${recipientEmail}?subject=${emailSubject}&body=${emailBody}`;
 
-                console.log("Form data collected (also sent to email client):", {
+                // In a real application, you would typically send this data to a server here
+                // after the mailto redirection, or as an alternative if the user prefers.
+                // For this example, we're assuming the mailto is the primary action.
+                console.log("Form data collected for potential server submission:", {
                     productId: product ? product.id : null,
                     name,
                     email,
                     phone,
                     address
                 });
+
+                // Optionally, clear the form after submission (if you don't redirect fully away)
+                // contactForm.reset();
             });
+
+            // The WhatsApp link already gets updated on 'input' event,
+            // so if someone clicks it directly after filling the form,
+            // the details will be included. No need for a separate click handler for it.
+
         });
     </script>
 </body>
